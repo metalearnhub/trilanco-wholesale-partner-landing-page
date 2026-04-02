@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://paymegpt.com/widget.js" data-widget="74396338" async></script>
+
+
+
+<!-- SEO Meta Tags -->
+<title>Trilanco Ltd | UK's Leading Multi-Category Wholesaler Since 1975</title>
+<meta name="description" content="A premium landing page for Trilanco Ltd featuring luxury editorial design, industry sectors, testimonials, services, and account application CTA." />
+<meta property="og:title" content="Trilanco Ltd | UK's Leading Multi-Category Wholesaler Since 1975" />
+<meta property="og:description" content="A premium landing page for Trilanco Ltd featuring luxury editorial design, industry sectors, testimonials, services, and account application CTA." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Trilanco Ltd | UK's Leading Multi-Category Wholesaler Since 1975" />
+<meta name="twitter:description" content="A premium landing page for Trilanco Ltd featuring luxury editorial design, industry sectors, testimonials, services, and account application CTA." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=2767');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='WwS3MweC';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>
+<script data-donation>
+(function(){
+  var slug='WwS3MweC';
+  var apiBase='https://paymegpt.com';
+  var currency='USD';
+  var minAmt=100;var maxAmt=1000000;
+  function fmtD(c){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}
+  window.__donationConfig={currency:currency,presets:[25,50,100,250],minAmount:100/100,maxAmount:1000000/100,formatAmount:fmtD,buttonColor:'#4f46e5',buttonText:'Donate Now',thankYouMessage:'Thank you for your generous donation!'};
+  window.__processDonation=function(amountCents,email,name,donorMessage){
+    if(!amountCents||amountCents<minAmt){alert('Minimum donation is '+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert('Maximum donation is '+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/donate/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:name||'',amountCents:amountCents,message:donorMessage||'',successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process donation');}
+    }).catch(function(){alert('Failed to connect to payment server.');});
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Thank You!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for your generous donation!</p><button onclick="document.getElementById(\'donation-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+<!-- ============================================================================ -->
+<!-- TOP MICRO BAR: Contact details and quick trust cues                          -->
+<!-- Mobile Padding: p-4 ensures edge-safe spacing on small screens              -->
+<!-- ============================================================================ -->
+<div data-section="micro-bar" class="bg-[#0f2f1c] text-cream text-[12px] tracking-wide">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+    <div class="font-mono">+44 (0)1772 756464</div>
+    <div class="font-mono">hello@trilanco.com</div>
+  </div>
+</div>
+
+<!-- ============================================================================ -->
+<!-- STICKY NAV: Brand, primary links, and account CTA                            -->
+<!-- Mobile Padding: p-4 prevents clipping at viewport edges                    -->
+<!-- ============================================================================ -->
+<nav data-section="navbar" class="sticky top-0 z-40 bg-[#1a4d2e]/95 backdrop-blur border-b border-white/10 text-cream">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+    <a href="#hero" class="brand-serif text-2xl md:text-3xl tracking-[0.22em] text-white">TRILANCO</a>
+    <button id="nav-menu-toggle" class="md:hidden px-3 py-2 rounded-md border border-white/20" aria-label="Toggle navigation">Menu</button>
+    <div id="nav-menu" class="hidden md:flex items-center gap-6">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#sectors">Sectors</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#brands">Blog</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a href="#contact" class="cta-hover bg-[#c9a84c] text-[#17391f] px-5 py-3 rounded-full font-semibold shadow-lg shadow-black/10">Apply for Account</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================================ -->
+<!-- HERO SECTION: Full-bleed countryside image, premium headline, dual CTAs     -->
+<!-- Mobile Padding: generous inset ensures safe spacing on all screen sizes      -->
+<!-- ============================================================================ -->
+<header id="hero" data-section="hero" class="relative overflow-hidden hero-bg">
+  <div id="hero-parallax" class="parallax absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+    <div class="max-w-3xl text-cream reveal">
+      <p class="uppercase tracking-[0.35em] text-sm text-[#e7d7a5] mb-5">Family-run in Preston, UK since 1975</p>
+      <h1 class="text-5xl sm:text-6xl lg:text-8xl leading-[.95] font-bold text-white">Helping Your Business Thrive Since 1975</h1>
+      <p class="mt-6 text-lg sm:text-xl max-w-2xl text-white/85">The UK's trusted multi-category wholesaler for agricultural, animal health, equine, pet and smallholding products.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="cta-hover bg-[#c9a84c] text-[#17391f] px-7 py-4 rounded-full font-bold text-center">Apply for an Account</a>
+        <a href="#sectors" class="cta-hover border border-white/30 bg-white/5 text-white px-7 py-4 rounded-full font-bold text-center">Explore Our Products</a>
+      </div>
+      <div class="mt-14 flex items-center gap-4 text-white/70">
+        <div class="w-10 h-16 rounded-full border border-white/25 flex justify-center p-2"><div class="scroll-dot w-2 h-2 rounded-full bg-[#c9a84c]"></div></div>
+        <span class="text-sm uppercase tracking-[0.25em]">Scroll to explore</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================================ -->
+<!-- TRUST BAR: Key statistics and reassurance cues                              -->
+<!-- Mobile Padding: p-4 on container with wrap-safe spacing                     -->
+<!-- ============================================================================ -->
+<section data-section="trust-bar" class="bg-[#f8f4ee] border-y border-[#d8cfbe]">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-5 text-[#1a4d2e]">
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm sm:text-base font-semibold">
+      <span><span data-counter="50" class="tabular-nums">50</span> Years of Excellence</span><span class="opacity-40">|</span>
+      <span><span data-counter="10000" class="tabular-nums">10,000</span>+ Products</span><span class="opacity-40">|</span>
+      <span>Next Day Delivery</span><span class="opacity-40">|</span>
+      <span>Family Run Business</span><span class="opacity-40">|</span>
+      <span>Top-Rated Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- FEATURES SECTION: Three premium value cards with highlighted gold feature   -->
+<!-- Mobile Padding: card grid keeps padding on every breakpoint                  -->
+<!-- ============================================================================ -->
+<section data-section="features" class="reveal">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20">
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="card-hover bg-white rounded-3xl p-8 shadow-sm border border-[#eadfcd]">
+        <div class="text-[#1a4d2e] text-3xl mb-5">◌</div>
+        <h2 class="brand-serif text-3xl text-[#143022]">10,000+ Products</h2>
+        <p class="mt-4 text-[#42584e]">A huge range of leading and exclusive brands, all ready to ship from a wholesaler trusted across the UK.</p>
+        <a href="#sectors" class="mt-8 inline-flex font-semibold text-[#1a4d2e]">Learn More →</a>
+      </article>
+      <article class="card-hover bg-[#c9a84c] rounded-3xl p-8 shadow-lg">
+        <div class="text-white text-3xl mb-5">✦</div>
+        <h2 class="brand-serif text-3xl text-[#17391f]">Next Day Delivery</h2>
+        <p class="mt-4 text-[#17391f]/90">Order before 2pm for guaranteed next-day dispatch — keeping your business moving without compromise.</p>
+        <a href="#contact" class="mt-8 inline-flex font-semibold text-[#17391f]">Learn More →</a>
+      </article>
+      <article class="card-hover bg-white rounded-3xl p-8 shadow-sm border border-[#eadfcd]">
+        <div class="text-[#1a4d2e] text-3xl mb-5">⌁</div>
+        <h2 class="brand-serif text-3xl text-[#143022]">Flexible Terms</h2>
+        <p class="mt-4 text-[#42584e]">Convenient credit and payment terms tailored to your business, backed by responsive account management.</p>
+        <a href="#contact" class="mt-8 inline-flex font-semibold text-[#1a4d2e]">Learn More →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- ABOUT SECTION: Split visual narrative with checklist and founder attribution -->
+<!-- Mobile Padding: stacked columns retain generous inset on mobile              -->
+<!-- ============================================================================ -->
+<section id="about" data-section="about" class="reveal">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="relative rounded-[2rem] overflow-hidden min-h-[420px] bg-cover bg-center shadow-2xl" style="background-image:url('https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1400&q=80')">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0d1f13]/40 via-transparent to-transparent"></div>
+    </div>
+    <div>
+      <p class="uppercase tracking-[0.3em] text-sm text-[#8a6a1f]">About Trilanco</p>
+      <h2 class="brand-serif text-4xl sm:text-5xl lg:text-6xl leading-tight text-[#143022] mt-3">50 Years as Your Trusted Wholesale Partner</h2>
+      <p class="mt-6 text-lg text-[#42584e]">We are a family-run business supporting the rural economy from Preston, UK since 1975. Our strength lies in deep category expertise, dependable fulfilment, and genuine long-term partnerships built around the needs of independent retailers and brand owners.</p>
+      <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-[#1f3f2d]">
+        <li>✓ Best-in-class product range</li><li>✓ 100% commitment to customers</li><li>✓ Quality-controlled fulfilment</li><li>✓ Professional account management</li><li>✓ Free onboarding for new accounts</li>
+      </ul>
+      <div class="mt-8 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-full bg-[#1a4d2e] text-white grid place-items-center font-bold">TF</div>
+        <div>
+          <div class="font-semibold text-[#143022]">Trilanco Family, Est. 1975</div>
+          <div class="text-sm text-[#6b7d72]">Trusted across agriculture and rural retail</div>
+        </div>
+      </div>
+      <a href="#contact" class="cta-hover inline-flex mt-8 bg-[#c9a84c] text-[#17391f] px-7 py-4 rounded-full font-bold">Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- SECTORS GRID: Dark green showcase of served industries                      -->
+<!-- Mobile Padding: section uses p-4-safe grid spacing and edge buffers         -->
+<!-- ============================================================================ -->
+<section id="sectors" data-section="sectors" class="reveal bg-[#1a4d2e] text-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20">
+    <div class="max-w-3xl">
+      <p class="uppercase tracking-[0.3em] text-[#e4cf89] text-sm">Industries We Serve</p>
+      <h2 class="brand-serif text-4xl sm:text-5xl lg:text-6xl mt-3">Built for the needs of modern rural business</h2>
+    </div>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Regulated Medicines</h3></div></div>
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Agricultural</h3></div></div>
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1516431883659-655d41c09bf9?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Equine</h3></div></div>
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Pet &amp; Animal Health</h3></div></div>
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Agri Consumables</h3></div></div>
+      <div class="group relative overflow-hidden rounded-[1.75rem] min-h-64 bg-cover bg-center card-hover" style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80')"><div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition"></div><div class="absolute inset-x-0 bottom-0 p-5 border-b-4 border-transparent group-hover:border-[#c9a84c] transition"><h3 class="text-2xl brand-serif">Footwear &amp; Workwear</h3></div></div>
+    </div>
+    <div class="mt-10"><a href="#contact" class="cta-hover inline-flex bg-[#c9a84c] text-[#17391f] px-7 py-4 rounded-full font-bold">Explore All Sectors</a></div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- TESTIMONIALS: Editorial quotes with star ratings and oversized quotation mark -->
+<!-- Mobile Padding: consistent inset for refined readability                    -->
+<!-- ============================================================================ -->
+<section data-section="testimonials" class="reveal bg-[#f8f4ee]">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="text-[#c9a84c] text-7xl leading-none">“</div>
+      <h2 class="brand-serif text-4xl sm:text-5xl text-[#143022] -mt-4">Trusted by retailers across the UK</h2>
+    </div>
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <article class="card-hover bg-white rounded-[1.5rem] p-8 border border-[#eadfcd]">
+        <div class="text-[#c9a84c]">★★★★★</div><p class="mt-5 text-[#42584e] italic">“The Trilanco website offers straight-forward ordering — stock levels are accurate, and the order status feature is exceptional.”</p><p class="mt-6 font-semibold text-[#143022]">— Perry</p>
+      </article>
+      <article class="card-hover bg-white rounded-[1.5rem] p-8 border border-[#eadfcd]">
+        <div class="text-[#c9a84c]">★★★★★</div><p class="mt-5 text-[#42584e] italic">“Excellent customer service and prompt, clear actions. Always a pleasure to work with.”</p><p class="mt-6 font-semibold text-[#143022]">— YFM Farm &amp; Country</p>
+      </article>
+      <article class="card-hover bg-white rounded-[1.5rem] p-8 border border-[#eadfcd]">
+        <div class="text-[#c9a84c]">★★★★★</div><p class="mt-5 text-[#42584e] italic">“Great customer service, good response time, very happy with the outcome every time.”</p><p class="mt-6 font-semibold text-[#143022]">— Abele Valley Farmers</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- SERVICES SPLIT: Retailers and brand owners with premium image-led panels     -->
+<!-- Mobile Padding: each panel retains inner safe spacing                        -->
+<!-- ============================================================================ -->
+<section id="services" data-section="services" class="reveal">
+  <div class="grid lg:grid-cols-2">
+    <div class="relative min-h-[420px] bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1518281420979-50eb8f2f7f7d?auto=format&fit=crop&w=1600&q=80')">
+      <div class="absolute inset-0 bg-[#1a4d2e]/78"></div>
+      <div class="relative h-full max-w-xl px-4 md:px-6 lg:px-10 py-16 text-white flex flex-col justify-end">
+        <p class="uppercase tracking-[0.3em] text-[#e4cf89] text-sm">For Retailers</p>
+        <h2 class="brand-serif text-4xl sm:text-5xl mt-3">We serve 1,000+ retailers across the UK</h2>
+        <a href="#contact" class="cta-hover mt-8 inline-flex w-fit bg-[#c9a84c] text-[#17391f] px-6 py-3 rounded-full font-bold">Services for Retailers</a>
+      </div>
+    </div>
+    <div class="relative min-h-[420px] bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=80')">
+      <div class="absolute inset-0 bg-[#102418]/82"></div>
+      <div class="relative h-full max-w-xl px-4 md:px-6 lg:px-10 py-16 text-white flex flex-col justify-end">
+        <p class="uppercase tracking-[0.3em] text-[#e4cf89] text-sm">For Brand Owners</p>
+        <h2 class="brand-serif text-4xl sm:text-5xl mt-3">A trusted distribution partner for growing brands</h2>
+        <a href="#contact" class="cta-hover mt-8 inline-flex w-fit bg-[#c9a84c] text-[#17391f] px-6 py-3 rounded-full font-bold">Services for Brand Owners</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- BRANDS STRIP: Animated marquee of leading and exclusive brand placeholders  -->
+<!-- Mobile Padding: section spacing preserves clean layout on small screens      -->
+<!-- ============================================================================ -->
+<section id="brands" data-section="brands" class="reveal bg-[#0f2418] text-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16">
+    <div class="max-w-3xl">
+      <p class="uppercase tracking-[0.3em] text-[#e4cf89] text-sm">Leading &amp; Exclusive Brands</p>
+      <h2 class="brand-serif text-4xl sm:text-5xl mt-3">The broadest range across every category</h2>
+      <p class="mt-4 text-white/75">We carry the broadest range of products across all categories — from market-leading names to exclusive lines you won't find anywhere else.</p>
+    </div>
+    <div class="mt-10 overflow-hidden border-y border-white/10 py-6">
+      <div class="marquee text-2xl sm:text-3xl brand-serif text-[#e8d9aa]">
+        <span>Brand One</span><span>Brand Two</span><span>Brand Three</span><span>Brand Four</span><span>Brand Five</span><span>Brand Six</span><span>Brand Seven</span><span>Brand Eight</span>
+        <span>Brand One</span><span>Brand Two</span><span>Brand Three</span><span>Brand Four</span><span>Brand Five</span><span>Brand Six</span><span>Brand Seven</span><span>Brand Eight</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- CTA BANNER: Strong conversion band with premium accent treatment             -->
+<!-- Mobile Padding: always wrapped with safe insets                              -->
+<!-- ============================================================================ -->
+<section data-section="cta" class="reveal bg-[#1a4d2e] text-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+    <div class="max-w-3xl">
+      <h2 class="brand-serif text-5xl sm:text-6xl leading-tight">Ready to Grow Your Business?</h2>
+      <p class="mt-5 text-lg text-white/80">Join thousands of retailers who trust Trilanco. Apply for your wholesale account today — it's free and fast.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="#contact" class="cta-hover bg-[#c9a84c] text-[#17391f] px-7 py-4 rounded-full font-bold text-center">Apply for an Account</a>
+      <a href="#footer" class="cta-hover border border-white/25 px-7 py-4 rounded-full font-bold text-center">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- CONTACT SECTION: Account enquiry form with premium service details           -->
+<!-- Mobile Padding: p-4 and roomy form fields for touch usability              -->
+<!-- ============================================================================ -->
+<section id="contact" data-section="contact" class="reveal bg-[#f8f4ee]">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-start">
+    <div>
+      <p class="uppercase tracking-[0.3em] text-sm text-[#8a6a1f]">Contact Trilanco</p>
+      <h2 class="brand-serif text-4xl sm:text-5xl text-[#143022] mt-3">Apply for a wholesale account</h2>
+      <p class="mt-5 text-[#42584e]">Tell us about your business and our team will help you get set up with the right products, terms, and account support.</p>
+      <div class="mt-8 space-y-3 text-[#1f3f2d]">
+        <div>Carleton Rd, Preston, UK</div>
+        <div>hello@trilanco.com</div>
+        <div>+44 (0)1772 756464</div>
+      </div>
+    </div>
+    <form class="contact-form bg-white rounded-[2rem] p-6 md:p-8 shadow-lg border border-[#eadfcd]" onsubmit="window.__processPayment({amountCents:0,email:document.getElementById('email').value,productName:'Trilanco Account Application',productDescription:'Wholesale account enquiry',name:document.getElementById('name').value,quantity:1});return false;">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block"><span class="text-sm font-semibold text-[#143022]">Full name</span><input id="name" class="mt-2 w-full rounded-xl border border-[#d9cfbe] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c9a84c]" type="text" required></label>
+        <label class="block"><span class="text-sm font-semibold text-[#143022]">Email</span><input id="email" class="mt-2 w-full rounded-xl border border-[#d9cfbe] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c9a84c]" type="email" required></label>
+      </div>
+      <label class="block mt-4"><span class="text-sm font-semibold text-[#143022]">Company</span><input class="mt-2 w-full rounded-xl border border-[#d9cfbe] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c9a84c]" type="text" required></label>
+      <label class="block mt-4"><span class="text-sm font-semibold text-[#143022]">Tell us about your business</span><textarea class="mt-2 w-full rounded-xl border border-[#d9cfbe] px-4 py-3 min-h-32 focus:outline-none focus:ring-2 focus:ring-[#c9a84c]"></textarea></label>
+      <button type="submit" class="cta-hover mt-6 w-full bg-[#1a4d2e] text-white px-7 py-4 rounded-full font-bold">Submit Account Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================================ -->
+<!-- FOOTER: Multi-column resource links, contact details, and social presence    -->
+<!-- Widget Included Here: floating chat bubble remains available in footer       -->
+<!-- Mobile Padding: stack-safe layout with protected spacing                     -->
+<!-- ============================================================================ -->
+<footer id="footer" data-section="footer" class="widget-safe relative bg-[#0d1f13] text-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="brand-serif text-3xl tracking-[0.22em]">TRILANCO</div>
+      <p class="mt-4 text-white/70">Premium wholesale solutions for rural retail, animal health, equine, and agricultural businesses.</p>
+      <div class="mt-5 space-y-2 text-white/75">
+        <div>Carleton Rd, Preston</div><div>hello@trilanco.com</div><div>+44 (0)1772 756464</div>
+      </div>
+    </div>
+    <div>
+      <h3 class="brand-serif text-2xl">Our Business</h3>
+      <ul class="mt-4 space-y-2 text-white/75">
+        <li>Careers</li><li>Sustainability</li><li>Anti-Slavery Policy</li><li>Prescription Policy</li><li>Directing to NHS Farm</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="brand-serif text-2xl">Our Website</h3>
+      <ul class="mt-4 space-y-2 text-white/75">
+        <li>Home</li><li>Contact Us</li><li>Terms and Conditions</li><li>News</li><li>Privacy Policy</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="brand-serif text-2xl">Customer Care</h3>
+      <ul class="mt-4 space-y-2 text-white/75">
+        <li>Help Centre</li><li>Delivery and Returns</li><li>Customer Login</li>
+      </ul>
+      <div class="mt-6 flex gap-3 text-[#e4cf89]">
+        <span>Facebook</span><span>LinkedIn</span><span>X</span><span>YouTube</span><span>Instagram</span>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-5 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-sm text-white/65">
+      <div>© 2025 Trilanco Ltd</div>
+      <div class="flex flex-wrap gap-4"><span>Privacy Policy</span><span>TRILANCO</span><span>Cookie Settings</span></div>
+    </div>
+  </div>
+  <script src="https://paymegpt.com/widget.js" data-widget="74396338" async></script>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
